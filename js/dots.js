@@ -2,8 +2,8 @@ var canvasDots = function() {
     var homeScreen = $('#one');
     var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
-    colorDot = '#dddddd',
-    color = '#dddddd';
+    colorDot = '#010201',
+    color = '#0a136d';
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     canvas.style.display = 'block';
@@ -130,9 +130,10 @@ var canvasDots = function() {
     mousePosition.x = window.innerWidth / 2;
     mousePosition.y = window.innerHeight / 2;
 
-    setInterval(createDots, 1000/30);
+    setInterval(createDots, 100/25);
 };
 
 window.onload = function() {
     canvasDots();
+
 };
