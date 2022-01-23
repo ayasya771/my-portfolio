@@ -1,3 +1,5 @@
+
+
 .connecting-dots {
     position: fixed;
     width: 100%;
@@ -24,3 +26,94 @@
     font-style:italic;
     font-weight:normal;
 };
+
+.github{
+    width:100px;
+    height:100px;
+}
+
+.typer 
+{
+   left: 50px;
+   z-index: 10000;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 20%;
+    height: 220px;
+    padding: 0 10px;
+
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    width: 200px;
+    margin-left: 200px;
+  }
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+
+.ticker_bg 
+{
+   background: #f0f0f0;
+   width: 80%;
+   height: 100px;
+   left: 50px;
+   position: relative;
+   z-index: 1;
+}
+.typer p 
+{
+   font-size: 30px;
+   letter-spacing: 0.1rem;
+   overflow: hidden;
+   font-family: 'Poppins', sans-serif;
+}
+
+.typer p span.typed-text 
+{
+   font-weight: bold;
+   color: #000;
+   font-size: 30px;
+   text-shadow: 0px 2px 0px rgba(0,0,0,0.35);
+}
+
+.typer p span.cursor 
+{
+    display: inline-block;
+    background-color: #ccc;
+    margin-left: 0.1rem;
+    width: 3px;
+    animation: blink 1s infinite;
+}
