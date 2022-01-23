@@ -48,9 +48,9 @@
   
   /* Float four columns side by side */
   .column {
-    float: left;
+    float:right;
     width: 20%;
-    height: 220px;
+    height: 240px;
     padding: 0 10px;
 
   }
@@ -68,14 +68,14 @@
   /* Style the counter cards */
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
+    padding: 12px;
     text-align: center;
     width: 200px;
-    margin-left: 200px;
+    margin-left: 179px;
   }
   
   /* Responsive columns - one column layout (vertical) on small screens */
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1000px) {
     .column {
       width: 100%;
       display: block;
