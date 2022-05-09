@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>Loading...</title>
     <link rel = "stylesheet" href = "loading.css"/>
- 
+    <meta http-equiv="refresh" content="6";
+          url="https://ayasyabatta.me/continue.html" />
 </head>
 
 <body>
@@ -17,19 +18,6 @@
     <br><br>
     <br><br>
     <br><br>
-    <script>
-        var seconds =0;
-        function displayseconds(){
-            seconds +=1;
-            document.getElementById("secondsdisplay").innerText = "Connecting in ... "+seconds+" seconds";
-        }
-        setInterval(displayseconds,1000);
-        function redirectpage(){
-            window.location = "https://ayasyabatta.me/continue.html";
-        }
-        setTimeout('redirectpage'(),4000);
-    </script>
-    <div id ="secondsdisplay"></div>
 </body>
 
 </html>
