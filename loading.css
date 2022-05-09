@@ -17,6 +17,9 @@ body
 .direct{
     font-size: 40px;
     color: #fff;
+    justify-content: center;
+    margin-bottom: 50%;
+
 }
 
 .loader
