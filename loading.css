@@ -15,7 +15,8 @@ body
 }
 
 .direct{
-    font-size: larger;
+    font-size: 40px;
+    color: #fff;
 }
 
 .loader
