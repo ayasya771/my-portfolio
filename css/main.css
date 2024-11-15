@@ -30,7 +30,118 @@
 		list-style: none;
 	}
 
-	
+	/* Base responsive setup */
+:root {
+    --container-width: 1200px;
+    --padding-mobile: 15px;
+    --padding-desktop: 30px;
+}
+
+/* Responsive Typography */
+html {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Responsive Container */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--padding-desktop);
+}
+
+/* Responsive Grid System */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 15px;
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 var(--padding-mobile);
+        max-width: 540px;
+    }
+    
+    .col-lg-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    /* Adjust navigation */
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+    }
+    
+    /* Adjust education timeline */
+    .border-left {
+        margin-left: 0;
+        padding-left: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+    
+    /* Adjust typography */
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    /* Adjust spacing */
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .btn:hover {
+        background-color: initial;
+    }
+    
+    .nav-link {
+        padding: 15px 10px;
+    }
+}
 
 	blockquote, q {
 		quotes: none;
