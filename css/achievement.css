@@ -5,6 +5,7 @@
   
   body {
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
   }
   
   /* Background Canvas */
@@ -58,101 +59,98 @@
 
   /* Replace existing carousel responsive CSS with: */
 
+/* Update the carousel section in achievement.css */
+
 /* Carousel Base */
 .carousel-container {
-    height: 50vh;
-    position: relative;
-    perspective: 1000px;
-    margin: 10vh auto;
-    background: transparent;
-    max-width: 90vw;
+  position: relative;
+  z-index: 1;
+  perspective: 1000px;
+  margin: 5vh auto;
+  background: transparent;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  aspect-ratio: 16/9;
 }
 
 .list {
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
 }
 
 .list li {
-    list-style-type: none;
-    position: absolute;
-    width: min(600px, 80vw);
-    height: auto;
-    aspect-ratio: 4/3;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    border-radius: clamp(5px, 1vw, 10px);
-    overflow: hidden;
+  list-style-type: none;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: 80vh;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+.list li img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Slide Positions */
 .list li.act {
-    opacity: 1;
-    transform: translateX(-50%) translateZ(0) scale(1);
+  transform: translate(-50%, -50%) translateZ(0) scale(1);
+  opacity: 1;
+  z-index: 3;
 }
 
 .list li.prev {
-    opacity: 0.6;
-    transform: translateX(-120%) translateZ(-100px) scale(0.85);
+  transform: translate(-150%, -50%) translateZ(-200px) scale(0.85);
+  opacity: 0.6;
+  z-index: 3;
 }
 
 .list li.next {
-    opacity: 0.6;
-    transform: translateX(20%) translateZ(-100px) scale(0.85);
+  transform: translate(50%, -50%) translateZ(-200px) scale(0.85);
+  opacity: 0.6;
+  z-index: 3;
 }
 
 .list li.hide {
-    opacity: 0;
-    transform: translateX(-170%) translateZ(-200px) scale(0.7);
+  transform: translate(-250%, -50%) translateZ(-400px) scale(0.7);
+  opacity: 0;
+  z-index: 3;
 }
 
 .list li.new-next {
-    opacity: 0;
-    transform: translateX(70%) translateZ(-200px) scale(0.7);
+  transform: translate(150%, -50%) translateZ(-400px) scale(0.7);
+  opacity: 0;
+  z-index: 3;
 }
 
-/* Responsive Breakpoints */
-@media screen and (max-width: 1200px) {
-    .list li {
-        width: 70vw;
-    }
-}
-
+/* Remove fixed dimensions in media queries */
 @media screen and (max-width: 768px) {
-    .carousel-container {
-        height: 40vh;
-        margin: 8vh auto;
-    }
-    .list li {
-        width: 85vw;
-    }
+  .carousel-container {
+      margin: 3vh auto;
+  }
+  
+  .list li {
+      max-width: 90%;
+  }
 }
 
-@media screen and (max-width: 480px) {
-    .carousel-container {
-        height: 35vh;
-        margin: 5vh auto;
-    }
-    .list li {
-        width: 90vw;
-    }
-}
-
-/* Orientation Support */
 @media (orientation: landscape) and (max-height: 600px) {
-    .carousel-container {
-        height: 60vh;
-    }
-    .list li {
-        width: 60vw;
-    }
+  .list li {
+      max-height: 70vh;
+  }
 }
-
 
   /* Filter System */
   .filterDiv {

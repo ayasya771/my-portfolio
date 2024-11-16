@@ -1,4 +1,3 @@
-// Update slider.js with auto-play functionality
 const images = [
     'img/achievements/1.jpg',
     'img/achievements/2.jpg',
@@ -9,73 +8,135 @@ const images = [
 
 let currentIndex = 0;
 let autoPlayInterval;
-const AUTO_PLAY_DELAY = 3000; // 3 seconds between slides
+const AUTO_PLAY_DELAY = 4000;
 
 function $(selector) {
+    // Always return jQuery object if jQuery is available
+    if (window.jQuery) {
+        return jQuery(selector);
+    }
+    // Fallback to native DOM element
     return document.querySelector(selector);
 }
 
 function next() {
-    const hideEl = $('.hide');
+    // Get elements and check if they exist
+    const hideEl = document.querySelector('.hide');
+    const prevEl = document.querySelector('.prev');
+    const actEl = document.querySelector('.act');
+    const nextEl = document.querySelector('.next');
+    const newNextEl = document.querySelector('.new-next');
+    const listEl = document.querySelector('.list');
+
     if (hideEl) {
         hideEl.remove();
     }
 
-    const prevEl = $('.prev');
     if (prevEl) {
         prevEl.classList.add('hide');
         prevEl.classList.remove('prev');
     }
 
-    $('.act').classList.add('prev');
-    $('.act').classList.remove('act');
+    if (actEl) {
+        actEl.classList.add('prev');
+        actEl.classList.remove('act');
+    }
 
-    $('.next').classList.add('act');
-    $('.next').classList.remove('next');
+    if (nextEl) {
+        nextEl.classList.add('act');
+        nextEl.classList.remove('next');
+    }
 
-    $('.new-next').classList.add('next');
-    $('.new-next').classList.remove('new-next');
+    if (newNextEl) {
+        newNextEl.classList.add('next');
+        newNextEl.classList.remove('new-next');
+    }
 
     currentIndex = (currentIndex + 1) % images.length;
     
-    const addedEl = document.createElement('li');
-    const img = document.createElement('img');
-    img.src = images[currentIndex];
-    img.alt = `Achievement ${currentIndex + 1}`;
-    addedEl.appendChild(img);
-    
-    $('.list').appendChild(addedEl);
-    addedEl.classList.add('new-next');
+    if (listEl) {
+        const addedEl = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = images[currentIndex];
+        img.alt = `Achievement ${currentIndex + 1}`;
+        addedEl.appendChild(img);
+        listEl.appendChild(addedEl);
+        addedEl.classList.add('new-next');
+    }
 }
 
-function prev() {
-    $('.new-next').remove();
-    
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    
-    $('.next').classList.add('new-next');
-    
-    $('.act').classList.add('next');
-    $('.act').classList.remove('act');
-    
-    $('.prev').classList.add('act');
-    $('.prev').classList.remove('prev');
-    
-    $('.hide').classList.add('prev');
-    $('.hide').classList.remove('hide');
-    
-    const addedEl = document.createElement('li');
-    const img = document.createElement('img');
-    img.src = images[currentIndex];
-    img.alt = `Achievement ${currentIndex + 1}`;
-    addedEl.appendChild(img);
-    
-    $('.list').insertBefore(addedEl, $('.list').firstChild);
-    addedEl.classList.add('hide');
+// Add these handler functions before the event listeners
+function handleMouseDown(e) {
+    stopAutoPlay();
+    startX = e.pageX;
 }
+
+function handleMouseUp(e) {
+    const diffX = e.pageX - startX;
+    if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+            prev();
+        } else {
+            next();
+        }
+    }
+    startAutoPlay();
+}
+
+function handleTouchStart(e) {
+    stopAutoPlay();
+    startX = e.touches[0].pageX;
+}
+
+function handleTouchEnd(e) {
+    const diffX = e.changedTouches[0].pageX - startX;
+    if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+            prev();
+        } else {
+            next();
+        }
+    }
+    startAutoPlay();
+}
+
+// Update event listener section
+document.addEventListener('DOMContentLoaded', () => {
+    const swipe = document.querySelector('.swipe');
+    if (!swipe) return;
+
+    let startX;
+    
+    // Start autoplay
+    startAutoPlay();
+
+    // Mouse and touch events
+    swipe.addEventListener('mousedown', handleMouseDown);
+    swipe.addEventListener('mouseup', handleMouseUp);
+    swipe.addEventListener('touchstart', handleTouchStart);
+    swipe.addEventListener('touchend', handleTouchEnd);
+});
+
+// Event Listeners
+
+document.addEventListener('DOMContentLoaded', () => {
+    const swipe = document.querySelector('.swipe');
+    if (!swipe) return;
+
+    let startX;
+    
+    // Start autoplay
+    startAutoPlay();
+
+    // Touch and mouse events using native DOM methods
+    swipe.addEventListener('mousedown', handleMouseDown);
+    swipe.addEventListener('mouseup', handleMouseUp);
+    swipe.addEventListener('touchstart', handleTouchStart);
+    swipe.addEventListener('touchend', handleTouchEnd);
+});
 
 function startAutoPlay() {
-    stopAutoPlay(); // Clear any existing interval
+    stopAutoPlay();
     autoPlayInterval = setInterval(next, AUTO_PLAY_DELAY);
 }
 

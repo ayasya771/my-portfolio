@@ -3,8 +3,8 @@ var canvasDots = function() {
     var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
     colorDot = 'blue',
-    colorDot_radius = "0.6";
-    color = 'purple';
+    colorDot_radius = "0.7";
+    color = 'white';
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     canvas.style.display = 'block';
@@ -138,3 +138,4 @@ window.onload = function() {
     canvasDots();
 
 };
+
