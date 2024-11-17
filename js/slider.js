@@ -4,6 +4,7 @@ const images = [
     'img/achievements/3.jpg',
     'img/achievements/4.jpg',
     'img/achievements/5.jpg',
+    'img/achievements/6.jpg',
 ];
 
 let currentIndex = 0;

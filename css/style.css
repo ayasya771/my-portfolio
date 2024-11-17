@@ -2428,40 +2428,62 @@ textarea.form-control {
 
 .dropdown-container {
   text-align: center;
-  margin: 20px 0;
+  margin: 1% 0;
 }
 
 .category-dropdown {
   padding: 10px 20px;
   font-size: 16px;
-  border: 2px solid #1cc98c;
+  border: 3px solid #1cc98c;
   border-radius: 5px;
   background: white;
   color: #333;
   cursor: pointer;
-  min-width: 250px;
+  min-width: 300px;
 }
 
 .category-dropdown:focus {
   outline: none;
   border-color: #1cc98c;
-  box-shadow: 0 0 5px rgba(28, 201, 140, 0.3);
+  box-shadow: 0 0 7px rgba(28, 201, 140, 0.3);
 }
 
 .certificate-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .filterDiv {
-  display: none;
+    display: none;
+    width: 35vw;
+    max-width: 800px;
+    text-align: center;
+    padding: 15px;
+    margin: 0 auto;
 }
 
 .show {
   display: block;
-  animation: fadeIn 0.5s;
+  animation: fadeIn 1s;
+}
+
+@media screen and (max-width: 768px) {
+  .filterDiv {
+      width: 45vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .filterDiv {
+      width: 80vw;
+  }
 }
 
 @keyframes fadeIn {
