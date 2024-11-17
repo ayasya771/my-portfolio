@@ -90,16 +90,18 @@
 
     <br><br>
    <!-- Control buttons -->
-<div id="myBtnContainer">
-    <button class="btn active" onclick="filterSelection('all')"> All</button>
-    <button class="btn" onclick="filterSelection('cars')">Certification & Others</button>
-    <button class="btn" onclick="filterSelection('colors')">National & Interschool Participation</button>
-    <button class="btn" onclick="filterSelection('animals')">Courses</button>
-    <button class="btn" onclick="filterSelection('fruits')">Internships and Volunteering</button>
-  </div>
+<div class="dropdown-container">
+    <select id="categorySelect" class="category-dropdown" onchange="filterSelection(this.value)">
+        <option value="" active selected>Select Category</option>
+        <option value="cars">Certification & Others</option>
+        <option value="colors">National & Interschool Participation</option>
+        <option value="animals">Courses</option>
+        <option value="fruits">Internships and Volunteering</option>
+    </select>
+</div>
   <br><br>
   <!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
-  <div class="container">
+  <div class="certificate-container">
     <a class="filterDiv cars" href ="img/certificates/exams/Microsoft_Certified - AI -900 certificate.pdf#toolbar=0"> Microsoft Certification in Artificial Intelligence</a>
 
     <a class="filterDiv colors" href="img/certificates/competitions/amity atl dhananjay mohan competition first prize.pdf#toolbar=0">ATL Innovation Fest `21-22 (1st Prize)</a>
@@ -153,18 +155,18 @@
     <a class="filterDiv animals" href="img/certificates/courses/101 python course by ibm.pdf#toolbar=0">Python 101 by IBM</a>
   
 </div>
-  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br>
     <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
-        <div class="container text-center py-5">
-            <p class="m-0">All Rights Reserved. Made By ~ <a class="text-white font-weight-bold">AB</a>
-            </p>
-        </div>
-        <div class="d-flex justify-content-center mb-4">
-            <a  href="https://github.com/ayasya771?tab=repositories"><img  src="img/logo-github.png"></a>
-            <a  href="https://www.linkedin.com/in/ayasya-batta-48b465226"><img src="img/logo-linkedin.png"></a>
-        </div>
+    <!-- Replace the current footer with: -->
+<div class="container-fluid bg-primary text-white mt-4 py-3 px-sm-3 px-md-5">
+    <div class="container text-center py-2">
+        <p class="m-0">All Rights Reserved. Made By ~ <a class="text-white font-weight-bold">AB</a></p>
     </div>
+    <div class="d-flex justify-content-center mb-2">
+        <a href="https://github.com/ayasya771?tab=repositories"><img src="img/logo-github.png"></a>
+        <a href="https://www.linkedin.com/in/ayasya-batta-48b465226"><img src="img/logo-linkedin.png"></a>
+    </div>
+</div>
     <!-- Footer End -->
 
     

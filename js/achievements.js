@@ -33,15 +33,33 @@ function w3RemoveClass(element, name) {
     }
   }
   element.className = arr1.join(" ");
+} 
+
+function filterSelection(category) {
+  var certificates = document.getElementsByClassName("filterDiv");
+  
+  // Hide all certificates
+  for (var i = 0; i < certificates.length; i++) {
+      certificates[i].classList.remove("show");
+  }
+  
+  // Show selected category if valid
+  if (category) {
+      for (var i = 0; i < certificates.length; i++) {
+          if (certificates[i].classList.contains(category)) {
+              certificates[i].classList.add("show");
+          }
+      }
+  }
 }
 
-// Add active class to the current control button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
+// Initialize first category on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Show Certification & Others by default
+  filterSelection('');
+  
+  // Add change event listener to dropdown
+  document.getElementById('categorySelect').addEventListener('change', function(e) {
+      filterSelection(e.target.value);
   });
-}
+});
