@@ -19,13 +19,244 @@ body {
   z-index: -1;
 }
 
+/* Navbar */
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.navbar-nav {
+  flex: 0 1 auto;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-left: auto;
+  margin-right: 1.25rem;
+}
+
+.navbar-logo {
+  max-width: 72px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand-text {
+  font-size: 1.125rem;
+  color: #0b2540;
+  text-transform: uppercase;
+  margin-left: 0.55rem;
+  letter-spacing: 0.08em;
+}
+
+.navbar-brand:hover .navbar-logo {
+  transform: scale(1.04);
+}
+
+.navbar-brand:hover .navbar-brand-text {
+  color: #1cc98c;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0b2540 !important;
+  padding: 0.65rem 1rem;
+  letter-spacing: 0.04em;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #1cc98c !important;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-logo {
+    max-width: 60px;
+  }
+
+  .navbar-brand-text {
+    font-size: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  min-height: 100vh;
+  background-color: #0d152c;
+  background-image:
+    url('../img/main_bg.png'),
+    url('../img/main_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, rgba(4, 11, 37, 0.75), rgba(7, 32, 60, 0.55));
+  backdrop-filter: brightness(0.92) saturate(1.05);
+  z-index: 0;
+}
+
+.hero-banner > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-copy {
+  margin-top: -3.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .hero-copy {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Qualification Section */
+.qualification-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  color: #1cc98c;
+  font-family: Cursive;
+  font-style: italic;
+}
+
+.qualification-heading .heading-fragment {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.qualification-heading .heading-separator {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 600;
+}
+
+.timeline-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-row {
+  row-gap: 2.5rem;
+}
+
+.timeline-row > [class*="col-"] {
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 992px) {
+  .timeline-row {
+    row-gap: 0;
+  }
+
+  .timeline-row > [class*="col-"] {
+    margin-bottom: 0;
+  }
+}
+
+.timeline-title {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  border-left: 2px solid rgba(28, 201, 140, 0.45);
+  padding-left: 2.25rem;
+  flex: 1 1 auto;
+}
+
+.timeline-item {
+  position: relative;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -2.95rem;
+  top: 0.5rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #1cc98c;
+  box-shadow: 0 0 0 4px rgba(28, 201, 140, 0.18);
+}
+
+.timeline-item h5,
+.timeline-item p,
+.timeline-item strong,
+.timeline-item small {
+  color: inherit;
+}
+
+.timeline-item strong {
+  font-weight: 600;
+}
+
+.timeline-item a {
+  color: inherit;
+}
+
+.timeline-item a:hover {
+  color: #1cc98c;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+  .timeline-list {
+    padding-left: 1.75rem;
+  }
+
+  .timeline-item::before {
+    left: -2.35rem;
+  }
+}
+
 /* Typography */
 .portfolio1 {
   font-family: Cursive;
   font-size: 58px;
-  color: #1cc98c;
   font-style: italic;
   font-weight: normal;
+  color: #1cc98c;
+  text-align: center;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .portfolio1 {
+    font-size: 44px;
+    padding: 0.75rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio1 {
+    font-size: 34px;
+    padding: 0.65rem 0;
+  }
 }
 
 /* Layout */
@@ -119,6 +350,7 @@ body {
 
 /* Typing Animation */
 .typer {
+  position: relative;
   left: 50px;
   z-index: 10000;
 }
@@ -143,6 +375,20 @@ body {
   margin-left: 0.1rem;
   width: 3px;
   animation: blink 1s infinite;
+}
+
+.hero-banner .typer p {
+  color: #ffffff;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.hero-banner .typer p span.typed-text {
+  color: #ffffff;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.55);
+}
+
+.hero-banner .typer p span.cursor {
+  background-color: #ffffff;
 }
 
 @keyframes blink {
