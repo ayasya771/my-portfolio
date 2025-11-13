@@ -89,7 +89,7 @@ body {
   background-color: #0d152c;
   background-image:
     url('../img/main_bg.png'),
-    url('../img/main_bg.jpg');
+  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
