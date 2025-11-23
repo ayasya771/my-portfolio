@@ -9958,3 +9958,41 @@ h6,
   left: 30px;
 }
 
+/* Qualification heading: keep the fragments horizontally aligned */
+#qualification .qualification-heading {
+  display: flex;               /* place children in a row */
+  flex-direction: row;
+  justify-content: center;     /* center horizontally */
+  align-items: center;         /* align vertically */
+  gap: 0.6rem;                 /* spacing between fragments */
+  flex-wrap: nowrap;           /* avoid wrapping to next line */
+  white-space: nowrap;         /* avoid wrapping of text */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Make the spans inline-block and consistent */
+#qualification .qualification-heading .heading-fragment,
+#qualification .qualification-heading .heading-separator {
+  display: inline-block !important;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  vertical-align: middle;
+  font-weight: 600;
+}
+
+/* Slight visual tuning for the separator */
+#qualification .qualification-heading .heading-separator {
+  padding: 0 .35rem;
+  font-size: 1.05em;
+}
+
+/* Mobile fallback to avoid wrapping on very small screens */
+@media (max-width: 480px) {
+  #qualification .qualification-heading { gap: 0.35rem; }
+  #qualification .qualification-heading .heading-fragment,
+  #qualification .qualification-heading .heading-separator {
+    font-size: 0.95rem;
+  }
+}
