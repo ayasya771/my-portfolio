@@ -128,17 +128,20 @@ body {
   color: #1cc98c;
   font-family: Cursive;
   font-style: italic;
+  --heading-fragment-size: clamp(2.2rem, 4vw, 3.5rem);
 }
 
 .qualification-heading .heading-fragment {
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-size: var(--heading-fragment-size);
   font-weight: 500;
   letter-spacing: 0.06em;
 }
 
 .qualification-heading .heading-separator {
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-size: clamp(1.65rem, 3vw, 2.625rem);
+  font-size: calc(var(--heading-fragment-size) * 0.75);
   font-weight: 600;
+  line-height: 1;
 }
 
 .timeline-column {
@@ -173,22 +176,23 @@ body {
 .timeline-list {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 0.58rem;
   border-left: 2px solid rgba(28, 201, 140, 0.45);
-  padding-left: 2.25rem;
+  padding-left: 1.85rem;
   flex: 1 1 auto;
 }
 
 .timeline-item {
   position: relative;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgb(255, 255, 255);
+  padding-bottom: 0.22rem;
 }
 
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: -2.95rem;
-  top: 0.5rem;
+  left: calc(-1.85rem - 7px);
+  top: 0.35rem;
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -196,15 +200,37 @@ body {
   box-shadow: 0 0 0 4px rgba(28, 201, 140, 0.18);
 }
 
+.timeline-item + .timeline-item {
+  padding-top: 0.38rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.timeline-item-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-item-title {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.timeline-item-meta {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.75rem;
+  row-gap: 0.25rem;
+}
+
 .timeline-item h5,
 .timeline-item p,
 .timeline-item strong,
 .timeline-item small {
   color: inherit;
-}
-
-.timeline-item strong {
-  font-weight: 600;
 }
 
 .timeline-item a {
@@ -221,11 +247,15 @@ body {
 
 @media (max-width: 767.98px) {
   .timeline-list {
-    padding-left: 1.75rem;
+    padding-left: 1.2rem;
   }
 
   .timeline-item::before {
-    left: -2.35rem;
+    left: calc(-1.2rem - 7px);
+  }
+
+  .timeline-item-title {
+    font-size: 1rem;
   }
 }
 
